@@ -18,8 +18,6 @@ properties(projectProperties)
 try {
     node {
         def mvnHome
-        def mvnAnalysisTargets = '-P metrics pmd:pmd test javadoc:javadoc '
-        def antHome
 
         stage('Tool Setup'){
 
@@ -31,7 +29,6 @@ try {
                     bat(/echo 'Running in windows mode' /)
                 }
                 mvnHome = tool name: 'mvn', type: 'maven'
-                antHome = tool name: 'ant', type: 'ant'
             } catch (exc) {
                 error "Failure in Tool Setup stage: ${exc}"
             }
