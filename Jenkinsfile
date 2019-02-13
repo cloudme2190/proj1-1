@@ -20,7 +20,7 @@ try {
         def mvnHome
         def mvnAnalysisTargets = '-P metrics pmd:pmd test javadoc:javadoc '
         def antHome
-        
+
         stage('Tool Setup'){
 
             // ** NOTE: These tools must be configured in the jenkins global configuration.
@@ -32,8 +32,6 @@ try {
                 }
                 mvnHome = tool name: 'mvn', type: 'maven'
                 antHome = tool name: 'ant', type: 'ant'
-                ansible = tool name: 'ansible', type: 'org.jenkinsci.plugins.ansible.AnsibleInstallation'
-
             } catch (exc) {
                 error "Failure in Tool Setup stage: ${exc}"
             }
